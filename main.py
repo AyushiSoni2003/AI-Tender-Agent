@@ -1,16 +1,15 @@
-# app.py
-from db import get_tender_data
+from db import get_all_tenders
 from ai_agent import generate_proposal
 
 def main():
-    tender_id = 1  # example tender
-    tender = get_tender_data(tender_id)
+    tenders = get_all_tenders()  # get all tenders from DB
 
-    if tender:
+    for tender in tenders:
         proposal = generate_proposal(tender)
-        print("Generated Proposal : ", proposal)
-    else:
-        print("Tender not found!")
+        # save each proposal to a file
+        with open(f"proposals/proposal_{tender.title}.txt", "w") as f:
+            f.write(proposal)
+        print(f"Proposal for {tender.title} saved!")
 
 if __name__ == "__main__":
     main()

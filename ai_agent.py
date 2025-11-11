@@ -23,8 +23,6 @@ def generate_proposal(tender):
         
     The proposal should use the following details dynamically:
 
-    
-
         1. Executive Summary  
         2. Understanding of the Tender  
         3. Proposed Solution / Approach  
@@ -41,6 +39,10 @@ def generate_proposal(tender):
 
         Make it formal, professional, and easy to read.
 
+        If any placeholder-like text exists in the tender description, replace it with the provided company and city details.
+        Provide the final proposal in plain text format without any markdown or special formatting.
+        Write details like address , email, phone number only if provided otherwise skip those details. 
+        mark date of proposal submission as current date.
         """
 
         response = client.models.generate_content(

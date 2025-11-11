@@ -19,3 +19,6 @@ session = Session()
 
 def get_tender_data(tender_id):
     return session.query(Tender).filter(Tender.id == tender_id).first()
+
+def get_all_tenders():
+    return session.query(Tender).all()
